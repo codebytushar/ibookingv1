@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
-import { loginUser } from '../lib/actions';
+// import { loginUser } from '../lib/actions';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -30,9 +30,9 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
-    const result = await loginUser(formData);
+    //const result = await loginUser(formData);
 
-    if (result.success && result.user) {
+    
       const signInResult = await signIn('credentials', {
         email: formData.email,
         password: formData.password,
@@ -46,10 +46,7 @@ export default function LoginPage() {
       } else {
         router.push(callbackUrl);
       }
-    } else {
-      setError(result.error || 'Login failed');
-      setLoading(false);
-    }
+  
   };
 
   return (
