@@ -11,14 +11,26 @@ export default function Sidebar() {
 
   const navItems = [
     { name: 'Dashboard', href: '/dashboard' },
-    { name: 'Rooms', href: '/rooms' },
-    { name: 'Satsangis', href: '/satsangis' },
-    { name: 'Shivir Planning', href: '/shivir-planning' },
+    { name: 'Shivirs', href: '/shivirs/new' },
+    { name: 'Satsangis', href: '/satsangis/new' },
+    { name: 'Room Properties', href: '/room_properties/new' },
+    { name: 'Room Types', href: '/room_types/new' },
+    { name: 'Rooms', href: '/rooms/new' },
+    { name: 'Allocations', href: '/allocations/new' },
+    { name: 'Checked In', href: '/checked_in/new' },
+    { name: 'Checked Out', href: '/checked_out/new' },
+    { name: 'Import Shivirs', href: '/shivirs/import' },
+    { name: 'Import Satsangis', href: '/satsangis/import' },
+    { name: 'Import Room Properties', href: '/room_properties/import' },
+    { name: 'Import Room Types', href: '/room_types/import' },
+    { name: 'Import Rooms', href: '/rooms/import' },
+    { name: 'Import Allocations', href: '/allocations/import' },
+    { name: 'Import Checked In', href: '/checked_in/import' },
+    { name: 'Import Checked Out', href: '/checked_out/import' },
   ];
 
   return (
     <>
-      {/* Mobile Toggle Button */}
       <Button
         variant="ghost"
         className="lg:hidden fixed top-4 left-4 z-50 text-white"
@@ -27,7 +39,6 @@ export default function Sidebar() {
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </Button>
 
-      {/* Sidebar */}
       <aside
         className={`bg-white/90 backdrop-blur-md w-64 p-6 fixed lg:static h-full lg:h-auto transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
@@ -42,7 +53,7 @@ export default function Sidebar() {
               key={item.name}
               href={item.href}
               className="block py-2 px-4 text-gray-800 hover:bg-indigo-100/50 rounded-md"
-              onClick={() => setIsOpen(false)} // Close sidebar on mobile click
+              onClick={() => setIsOpen(false)}
             >
               {item.name}
             </Link>
@@ -50,7 +61,6 @@ export default function Sidebar() {
         </nav>
       </aside>
 
-      {/* Overlay for mobile when sidebar is open */}
       {isOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black/50 z-30"
